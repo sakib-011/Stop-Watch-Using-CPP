@@ -11,6 +11,7 @@ private:
 public:
     stop_watch();
     void start();
+    int reset();
 };
 
 stop_watch::stop_watch() {
@@ -18,6 +19,27 @@ stop_watch::stop_watch() {
     minit = 0;
     second = 0;
     running = true;
+}
+
+int stop_watch :: reset()
+{
+    hour = 0;
+    minit = 0;
+    second = 0;
+    running = true;
+    int p;
+    cout<<"If you want to start again then press 1 :: ";
+    cin>>p;
+
+    if (p==1)
+    {
+        start();
+    }
+    else
+    {
+        return 0;
+    }
+    
 }
 
 void stop_watch::start() {
@@ -55,5 +77,11 @@ void stop_watch::start() {
 int main() {
     stop_watch st;
     st.start();
+    int t=1;
+    while(t)
+    {
+        t = st.reset();
+    }
+ 
     return 0;
 }
